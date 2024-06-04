@@ -13,6 +13,11 @@ Route::get('employe/{id}/delete',[EmployeesController::class, 'destroy']);
 Route::put('employe/{id}/update',[EmployeesController::class, 'update']);
 
 
+Route::get('employe/dashboard', [EmployeesController::class, 'dashboard'])->name('employe.dashboard');
+Route::get('employe/bsit3a', [EmployeesController::class, 'showBSIT'])->name('employe.bsit3a');
+Route::get('employe/add', [EmployeesController::class, 'add'])->name('employe.add');
+
+
 Route::get('/', function () {
     return view('welcome');
 });

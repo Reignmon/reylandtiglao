@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Employees extends Model
-{
-    protected $table = 'employees_tbl';
+class bsitModel extends Model
+{   
+
+    protected $table = 'sit3a_tbl';
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'firstname',
+        'lastname',
+        'dateofbirth',
+        'phone',
         ];
     use HasFactory;
 }

@@ -13,6 +13,20 @@ class EmployeesController extends Controller
         return view('employe.index',compact('employees'));
     }
 
+    public function showBSIT(){
+        $employees =  Employees::get();
+
+        return view('employe.bsit3a',compact('employees'));
+    }
+
+    public function dashboard(){
+        return view('employe.dashboard');
+    }
+
+    public function add(){
+        return view('employe.add');
+    }
+
     public function store(Request $request){
         $request->validate(
             [
