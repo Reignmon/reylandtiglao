@@ -17,7 +17,7 @@
                     <form action="{{url('employe/'.$employees->id.'/update')}}" method="POST">
                         @csrf
                         @method('PUT')
-                        <div class="row">
+                        <div class="row">                    
                             <div class="col">
                                 <div class="form-group">
                                     <label>Firstname</label>

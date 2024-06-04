@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('employe', [EmployeesController::class, 'index'])->name('employe.index');
 Route::post('employe', [EmployeesController::class, 'store']);
 Route::get('employe/{id}/update',[EmployeesController::class, 'edit'])->name('employe.update');
+Route::get('employe/{id}/delete',[EmployeesController::class, 'destroy']);
 Route::put('employe/{id}/update',[EmployeesController::class, 'update']);
 
 

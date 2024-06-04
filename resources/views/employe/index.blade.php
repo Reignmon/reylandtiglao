@@ -21,6 +21,7 @@
                                 <div class="form-group">
                                     <label>Firstname</label>
                                     <input type="text" name="firstname" class="form-control" placeholder="Enter Firstname" value="{{old('firstname')}}" >
+                                    @error('firstname') <span class="text-danger">{{$message}}</span>@enderror
                                 </div>
                             </div>
 
@@ -28,7 +29,7 @@
                                 <div class="form-group">
                                     <label>Lastname</label>
                                     <input type="text" name="lastname" class="form-control" placeholder="Enter Lastname" value="{{old('lastname')}}" >
-                            
+                                    @error('lastname') <span class="text-danger">{{$message}}</span>@enderror
                                 </div>
                             </div>
                         </div>
@@ -37,12 +38,14 @@
                                 <div class="form-group">
                                     <label for="birthday">Birthday</label>
                                     <input type="date" class="form-control" id="birthday" value="{{old('dateofbirth')}}" name="dateofbirth">
+                                    @error('dateofbirth') <span class="text-danger">{{$message}}</span>@enderror
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>Phone</label>
                                     <input type="int" name="phone" class="form-control" placeholder="Enter Phone Number" value="{{old('phone')}}" >
+                                    @error('phone') <span class="text-danger">{{$message}}</span>@enderror
                                 </div>
                             </div>
                         </div>
@@ -69,7 +72,9 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-dark">
+                                   
                                     @foreach ($employees as $item)
+                                    <tr>
                                     <td scope="col" >{{$item->id}}</td>
                                     <td scope="col" >{{$item->firstname }} {{ $item->lastname }}</td>
                                     <td scope="col" >{{$item->dateofbirth}}</td>
@@ -80,13 +85,15 @@
                                              </i>
                                              Edit
                                          </a>
-                                         <a class="btn btn-danger btn-sm" href="{{url($item->id)}}">
+                                         <a class="btn btn-danger btn-sm" href="{{url('employe/'.$item->id.'/delete')}}">
                                              <i class="fas fa-trash">
                                              </i>
                                              Delete
                                          </a>
                                     </td>
+                                    </tr>    
                                     @endforeach
+                                    
                                 </tbody>
                     </table>
                     

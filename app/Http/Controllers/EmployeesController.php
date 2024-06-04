@@ -14,6 +14,15 @@ class EmployeesController extends Controller
     }
 
     public function store(Request $request){
+        $request->validate(
+            [
+                'firstname'=>'required|regex:/^[a-zA-Z]+$/u|max:255',
+                'lastname'=>'required|regex:/^[a-zA-Z]+$/u|max:255',
+                'dateofbirth'=>'required|date|before:today',
+                'phone'=>'required|regex:/^[0-9\-]+$/|max:11',
+            ]
+        );
+
         Employees::create([
             'firstname'=>$request->firstname,
             'lastname'=>$request->lastname,
@@ -25,7 +34,6 @@ class EmployeesController extends Controller
 
     public function edit(int $id){
         $employees = Employees::findOrFail($id);
-
         return view('employe.update', compact('employees'));
     }
 
@@ -38,4 +46,12 @@ class EmployeesController extends Controller
         ]);
         return redirect('employe');
     }
+
+    public function destroy(int $id){
+        $employees = Employees::findOrFail($id);
+        $employees->delete();
+        return redirect('employe');
+    }
+
+
 }
